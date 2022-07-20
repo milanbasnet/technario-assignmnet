@@ -410,7 +410,7 @@
         @if (Route::has('login'))
         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
             @auth
-            <a href="{{ route('my.favorite')}}" class="text-sm text-gray-700 dark:text-gray-500 underline">Favourite Movies</a>
+            <a href="{{ route('home')}}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
             @else
             <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
@@ -430,38 +430,9 @@
                         <h5 class="card-title">{{$movie->title}}</h5>
                         <p class="card-text"><small class="text-muted">{{ $movie->release_date->format('d M, Y') }}</small></p>
                     </div>
-                    <div class="button-group so-quickview cartinfo--static">
-                        @if(Auth::check())
-                        <form action="{{ route('add.favorite', $movie->id) }}" method="post" style="display: inline">
-                        @csrf
-                        <button type="submit" class="btn btn-sm btn-primary" title="Add to favorite" onclick="cart.add('60 ');"> <i class="fa fa-shopping-basket"></i>
-                            <span>Add to Favorite </span>
-                        </button>
-                        </form>
-                        @else
-                        <button type="button" class="btn btn-sm btn-primary" title="Add to cart" disabled onclick="cart.add('60 ');"> <i class="fa fa-shopping-basket"></i>
-                            <span>Add to Favorite </span>
-                        </button>
-                        @endif
-                    </div>
+                   
                 </div>
                 @endforeach
-                <!-- <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>
